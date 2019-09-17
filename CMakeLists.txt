@@ -19,8 +19,8 @@ rez_set_archive(
     # that is pointing to the root directory where we can find all the archives of the package
     # we can build, using the following hierarchy:
     # "${REZ_REPO_PAYLOAD_DIR}/project_name/archive.what.ever"
-    PYSIDE2_URL pyside2/PySide2-${PYSIDE2_VERSION_PYTHONLESS}-${PYSIDE2_VERSION_PYTHONLESS}-cp27-cp27mu-manylinux1_x86_64.whl
-    https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.12.5-5.12.5-cp27-cp27mu-manylinux1_x86_64.whl
+    PYSIDE2_URL pyside2/PySide2-${PYSIDE2_VERSION_PYTHONLESS}-${PYSIDE2_VERSION_PYTHONLESS}-cp35.cp36.cp37-abi3-manylinux1_x86_64.whl
+    https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.12.5-5.12.5-cp35.cp36.cp37-abi3-manylinux1_x86_64.whl
 )
 
 # In the case of a Python pip wheel file, we do not have any archive to extract, so we can just execute our Bash

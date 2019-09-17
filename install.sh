@@ -26,7 +26,7 @@ echo -e "[INSTALL] Installing PySide2-${PYSIDE2_VERSION}..."
 echo -e "\n"
 
 # We copy the necessary files to the install directory
-pip2 install ${PYSIDE2_URL} --target ${INSTALL_PATH} --upgrade --no-dependencies
+pip3 install ${PYSIDE2_URL} --target ${INSTALL_PATH} --upgrade --no-dependencies
 
 echo -e "\n"
 echo -e "[INSTALL] Finished installing PySide2-${PYSIDE2_VERSION}!"
