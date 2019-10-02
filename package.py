@@ -12,9 +12,9 @@ description = \
     """
 
 requires = [
-    "cmake-3",
-    "python-3.7",
-    "shiboken2-5.12.5"
+    "cmake-3+",
+    "python-3.5+<3.8",
+    "shiboken2-{version}".format(version=str(version))
 ]
 
 variants = [
@@ -32,9 +32,13 @@ build_system = "cmake"
 with scope("config") as config:
     config.build_thread_count = "logical_cores"
 
-#TODO: Use the SHA1 of the archive instead.
-uuid = "pyside2-5.12.5.py3"
+uuid = "pyside2-{version}".format(version=str(version))
 
 def commands():
     env.PATH.prepend("{root}/bin")
     env.PYTHONPATH.prepend("{root}")
+
+    # Helper environment variables.
+    env.PYSIDE_BINARY_PATH.set("{root}/bin")
+    env.PYSIDE_INCLUDE_PATH.set("{root}/PySide2/include")
+    env.PYSIDE_LIBRARY_PATH.set("{root}/PySide2")
