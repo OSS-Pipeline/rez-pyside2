@@ -1,6 +1,6 @@
 name = "pyside2"
 
-version = "5.12.5.py2"
+version = "2.0.0"
 
 authors = [
     "The Qt Company"
@@ -13,8 +13,9 @@ description = \
 
 requires = [
     "cmake-3+",
+    "gcc-6+",
     "python-2.7+<3",
-    "shiboken2-{version}".format(version=str(version))
+    "qt-5.6"
 ]
 
 variants = [
@@ -24,7 +25,8 @@ variants = [
 tools = [
     "pyside2-lupdate",
     "pyside2-rcc",
-    "pyside2-uic"
+    "pyside2-uic",
+    "shiboken2"
 ]
 
 build_system = "cmake"
@@ -36,9 +38,11 @@ uuid = "pyside2-{version}".format(version=str(version))
 
 def commands():
     env.PATH.prepend("{root}/bin")
-    env.PYTHONPATH.prepend("{root}")
+    env.LD_LIBRARY_PATH.prepend("{root}/lib")
+    env.PYTHONPATH.prepend("{root}/lib/python" + str(env.REZ_PYTHON_MAJOR_VERSION) + "." + str(env.REZ_PYTHON_MINOR_VERSION) + "/site-packages")
+    env.PKG_CONFIG_PATH.prepend("{root}/lib/pkgconfig")
 
     # Helper environment variables.
     env.PYSIDE_BINARY_PATH.set("{root}/bin")
-    env.PYSIDE_INCLUDE_PATH.set("{root}/PySide2/include")
-    env.PYSIDE_LIBRARY_PATH.set("{root}/PySide2")
+    env.PYSIDE_INCLUDE_PATH.set("{root}/include")
+    env.PYSIDE_LIBRARY_PATH.set("{root}/lib")
