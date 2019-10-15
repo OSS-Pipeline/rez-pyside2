@@ -37,10 +37,10 @@ with scope("config") as config:
 uuid = "pyside2-{version}".format(version=str(version))
 
 def commands():
-    env.PATH.prepend("{root}/bin")
-    env.LD_LIBRARY_PATH.prepend("{root}/lib")
-    env.PYTHONPATH.prepend("{root}/lib/python" + str(env.REZ_PYTHON_MAJOR_VERSION) + "." + str(env.REZ_PYTHON_MINOR_VERSION) + "/site-packages")
-    env.PKG_CONFIG_PATH.prepend("{root}/lib/pkgconfig")
+    env.PATH.append("{root}/bin")
+    env.LD_LIBRARY_PATH.append("{root}/lib")
+    env.PYTHONPATH.append("{root}/lib/python" + str(env.REZ_PYTHON_MAJOR_VERSION) + "." + str(env.REZ_PYTHON_MINOR_VERSION) + "/site-packages")
+    env.PKG_CONFIG_PATH.append("{root}/lib/pkgconfig")
 
     # Helper environment variables.
     env.PYSIDE_BINARY_PATH.set("{root}/bin")
